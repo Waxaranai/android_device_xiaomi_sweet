@@ -80,6 +80,9 @@ on fs
     chmod 644 /mnt/vendor/persist/audio/us_manual_cal
     chmod 644 /persist/audio/us_manual_cal
 
+    rm /cache/boot_lc_main.txt
+    start boot_lc_main
+
 on late-fs
     wait_for_prop hwservicemanager.ready true
     exec_start wait_for_keymaster
@@ -221,3 +224,13 @@ service vendor.hwcomposer-2-4 /vendor/bin/hw/android.hardware.graphics.composer@
     onrestart restart surfaceflinger
     writepid /dev/cpuset/system-background/tasks
     socket pps stream 0660 system system
+
+service boot_lc_main /system/bin/logcat -f /cache/boot_lc_main.txt
+    class main
+    user root
+    group root system
+    disabled
+    oneshot
+
+on property:sys.boot_completed=1
+    stop boot_lc_main
