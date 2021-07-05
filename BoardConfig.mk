@@ -4,7 +4,6 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-BOARD_VENDOR := xiaomi
 
 DEVICE_PATH := device/xiaomi/sweet
 
@@ -142,6 +141,7 @@ TARGET_BOARD_PLATFORM := sm6150
 BOARD_USES_QCOM_HARDWARE := true
 
 # Power
+TARGET_USES_INTERACTION_BOOST := true
 TARGET_POWERHAL_MODE_EXT := $(DEVICE_PATH)/power/power-mode.cpp
 
 # Properties
