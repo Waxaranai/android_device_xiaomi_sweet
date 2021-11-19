@@ -1,4 +1,4 @@
-# Common device tree for Xiaomi SM6150 devices
+# Device tree for Xiaomi Redmi Note 10 Pro/Max
 
 ```
 #
